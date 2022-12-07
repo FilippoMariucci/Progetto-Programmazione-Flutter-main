@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 
 class DettaglioEvento extends StatefulWidget {
-  Map events = Map(); // map of events that we will receive from homepage events
+  Map events = Map(); // map degli eventi che arriva da eventi home page:scelgo un evento dalla lista generale e vado a vedere i dettagli completi di quel determinato evento selezionato
 
   DettaglioEvento({Key? key, required this.events}) : super(key: key);
 

@@ -17,7 +17,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
-  // to navigate in bottom bar
+  // per navigare nella  bottom bar
 
   late Query _ref;
 
@@ -28,12 +28,12 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildEventItem({required Map events}) {
-    // mappa con tutti i dati
+    // map contiene   i dati necessari
 
     return GestureDetector(
       onTap: () {
         Navigator.of(this.context).push(MaterialPageRoute(
-            builder: (context) => DettaglioEvento(events: events)));
+            builder: (context) => DettaglioEvento(events: events)));  //per andare a vedere tutte le info di un evento
       },
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
@@ -162,14 +162,14 @@ class _HomePageState extends State<HomePage> {
       body: Container(
         height: double.infinity,
 
-        /* datasnaphot contains all the data of the _ref in an animated list*/
+        /* datasnaphot contiene tutti i dati di _ref in una lista */
 
         child: FirebaseAnimatedList(
           query: _ref,
           itemBuilder: (BuildContext context, DataSnapshot snapshot,
               Animation<double> animation, int index) {
             Map events = snapshot.value
-                as Map; // each snapshot contain a child of the event
+                as Map; // ogni snapshot contiene un child  di un evento
             return _buildEventItem(events: events);
           },
         ),

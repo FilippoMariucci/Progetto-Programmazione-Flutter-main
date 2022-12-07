@@ -11,7 +11,7 @@ class AuthPage extends StatefulWidget {
 }
 
 class _AuthPageState extends State<AuthPage> {
-  // mostra login page all inizio
+  // mostra la login page all inizio
 
   bool showLoginPage = true;
 
@@ -21,17 +21,17 @@ class _AuthPageState extends State<AuthPage> {
     });
   }
 
-// gestion toggle, per il tocco sotto login button e registration button
+// gestion toggle lo uso per tocco utente legato ai bottoni login e register
   @override
   Widget build(BuildContext context) {
     if (showLoginPage) {
       return LoginPage(
           showRegisterPage:
-              toggleScreens); // qui la prima volta show register page é false, quindi va nel login, finché non clicco su 'register here'
+              toggleScreens); // la prima volta "show register page" é false e pertanto va a login  fino a quando non clicco su register
     } else {
       return Register(
           showLoginPage:
-              toggleScreens); // cliccando sul tasto registra va nella pagina registra
+              toggleScreens); // cliccando sul tasto registra va nella pagina per effettuare la registrazione
     }
   }
 }

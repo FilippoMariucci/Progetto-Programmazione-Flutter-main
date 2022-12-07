@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
     await Future.delayed(Duration(milliseconds: 1500), () {});
 
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => MainPage()));
+        context, MaterialPageRoute(builder: (context) => MainPage())); // sta sotto auth ed è dove finisco
   }
 
   @override

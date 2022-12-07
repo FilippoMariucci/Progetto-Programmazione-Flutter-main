@@ -12,17 +12,17 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
-// prova prova
+
 class _LoginPageState extends State<LoginPage> {
-  final formKey = GlobalKey<FormState>(); //key for form
-  // text controllers
+  final formKey = GlobalKey<FormState>(); //key la uso nella form
+  // uso dei text controllers per i campi di input che utente dovrà inserire
 
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
   bool isPasswordVisible = true;
 
-// log in autenticato email password
+// autenticazione login la facciamo con mail e pass
   Future signIn() async {
     try {
       UserCredential userCredential =
@@ -103,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               SizedBox(height: 30),
 
-              // password textfield
+              // campo per la password
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30.0),
                 child: Container(
@@ -145,7 +145,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               SizedBox(height: 60),
 
-              // sign in button
+              //  bottone legato al signin
 
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 100.0),
@@ -175,7 +175,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               SizedBox(height: 20),
 
-              // not registered?
+              // se utente non è registrato
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -190,26 +190,26 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
             ],
+              //struttura della schermata è come segue nei commenti sottostanti
+            // email
 
-            // email text
-
-            // pass text
+            // pass
 
             // login
 
-            // don t have an account register here
+            // non hhai aaccount-->registrati qui
           ),
         ),
       ),
     );
   }
 }
-
+//qui usiamo regole di validazione simili a quelle per app nativa android
 String? validateEmail(String? formEmail) {
   if (formEmail == null || formEmail.isEmpty) {
     return "Email address is required.";
   }
-  String pattern = r'\w+@\w+\.\w+'; // indica la chiocciola
+  String pattern = r'\w+@\w+\.\w+'; // serve per indicare  la chiocciola--->mi serve per avere una "vera" mail perchè deve mettere per forza na chiocciola
   RegExp regex = RegExp(pattern);
   if (!regex.hasMatch(formEmail)) {
     return "Email missing @!";

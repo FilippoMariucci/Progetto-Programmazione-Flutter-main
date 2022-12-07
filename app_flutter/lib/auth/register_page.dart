@@ -12,7 +12,7 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  final formKey = GlobalKey<FormState>(); //key for form
+  final formKey = GlobalKey<FormState>(); //key per la form form
   String name = "";
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -22,7 +22,7 @@ class _RegisterState extends State<Register> {
   final _confirmPasswordController = TextEditingController();
   final _dateController = TextEditingController();
   final _descriptionController = TextEditingController();
-
+//uso final perchè a runtime scopro cosa inserisce utente nei campi dela form di registrazione
   final databaseRef = FirebaseDatabase.instance.ref();
   bool isPasswordVisible = true;
 
@@ -39,7 +39,7 @@ class _RegisterState extends State<Register> {
 
     super.dispose();
   }
-
+//funzione con regole validazione simili a app nativa android
   bool checkFields(String email, String password, String name, String surname,
       String confirmPassw, String date) {
     if (email.isEmpty) {
@@ -85,8 +85,8 @@ class _RegisterState extends State<Register> {
         checkFields(name, surname, email, password, confirmPassword, birth);
 
     FirebaseAuth auth = FirebaseAuth.instance;
-    //
 
+      //se pass e conferma pass coincidono allora va bene altrimenti deve ricontrollare qualcosa
     if (check && passwordConfirmed()) {
       try {
         usercred = await auth.createUserWithEmailAndPassword(
@@ -94,7 +94,7 @@ class _RegisterState extends State<Register> {
           password: password,
         );
 
-        // aggiungi dettagli utente
+        // aggiunge dati dell utente
         addUserDetails(name, surname, password, state, birth, description);
       } on FirebaseAuthException catch (error) {
         var errorMessage = error.message;
@@ -301,7 +301,7 @@ class _RegisterState extends State<Register> {
               ),
               SizedBox(height: 30),
 
-              // not registered?
+              // not sei registrato?
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -323,7 +323,7 @@ class _RegisterState extends State<Register> {
     );
   }
 }
-
+//funzioni per validare campi input della form
 String? validateEmail(String? formEmail) {
   if (formEmail == null || formEmail.isEmpty) {
     return "Email address is required.";

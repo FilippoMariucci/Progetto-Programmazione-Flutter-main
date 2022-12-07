@@ -15,10 +15,10 @@ class MainPage extends StatelessWidget {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            // se lo user c e allora ok e vai in homepage
+            // se lo user  esiste allora vado ad home  altrimenti no
             return NavBar();
           } else {
-            return AuthPage(); // dalla auth page sara o loginpage o register page
+            return AuthPage(); // dalla auth page finsce in login oppure register
           }
         },
       ),

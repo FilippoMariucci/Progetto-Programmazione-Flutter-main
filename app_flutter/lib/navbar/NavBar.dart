@@ -14,13 +14,13 @@ class NavBar extends StatefulWidget {
 
 class _NavBarState extends State<NavBar> {
   int _selectedIndex = 0;
-  // to navigate in bottom bar
+  // per navigare nella  bottom bar
   void _navigationBottombar(int index) {
     setState(() {
       _selectedIndex = index;
     });
   }
-
+//dove posso navigare tramite la bottom bar
   final _pages = [
     HomePage(),
     Profile(),

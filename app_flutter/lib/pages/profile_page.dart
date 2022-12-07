@@ -46,7 +46,7 @@ class _ProfileState extends State<Profile> {
         .onValue
         .listen((DatabaseEvent event) {
       data = event.snapshot.value as Map;
-      //print(data['name']);
+
 
       setState(() {
         Update(data);
